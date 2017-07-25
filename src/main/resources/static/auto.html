@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="css/main.css" rel="stylesheet" type="text/css"/>
+
+<script type="text/javascript" src="angular/angular.min.js"> </script>
+<script type="text/javascript" src="js/jquery.1.10.2.min.js"> </script>
+<script type="text/javascript" src="js/jquery-ui.min.js"> </script>
+<script type="text/javascript" src="js/jquery.autocomplete.min.js"> </script>	
+	
+<title>Autocomplete</title>
+</head>
+<body>
+
+<h2>Spring MVC + jQuery + Autocomplete example</h2>
+
+	   <div>
+	   <label>Des</label>
+		<input type="text" name="des"  id="des" >
+		<label>Id</label>
+		<input type="text" name="id"  id="id" >
+		<label>Qté</label>
+		<input type="text" name="qte"  id="qte" >
+		<label>Prix</label>
+		<input type="text" name="prix"  id="prix" >
+		<span>
+			<button id="w-button-search" onclick="alert('Clic sur le bouton');" type="button">Enregistrer</button>
+		</span>
+	</div>
+	
+	
+	<script>
+	$(document).ready(function() {
+        $('#des').autocomplete({
+			serviceUrl: '/allArticles',
+			paramName: "etat",
+			delimiter: ",",
+			
+		    transformResult: function(data) {
+		    	
+		        return {
+			        
+		        	suggestions: $.map($.parseJSON(data), function(item) {
+		                return { 
+			                
+			                value: item.etat,
+			                data: item }; 
+			        		
+			               
+		            }) 
+		        };
+		    }   ,
+    	autoFocus: true,	      	
+    	minLength: 0,
+    	select: function( event, ui ) {
+    		alert('Clic sur le bouton');
+    	}	
+	    
+		})  
+	
+	});
+	</script>
+	
+
+</body>
+</html>

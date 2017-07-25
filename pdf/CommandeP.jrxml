@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
+<!-- 2016-05-17T17:10:27 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CommandeP" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cfe10730-0368-4967-bbac-dde869feb72e">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<subDataset name="ListeParam" uuid="247c1414-fb27-465e-a73c-07a0b9598c6f">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<parameter name="monIdFour" class="java.lang.Long"/>
+		<queryString>
+			<![CDATA[SELECT commerciale.commandefournisseur.`codeLivraison`,
+	commerciale.commandefournisseur.`idFour`,
+	commerciale.commandefournisseur.`dateVraiFour`,
+	commerciale.commandefournisseur.`fournisseur_idF`,
+	commerciale.commandefournisseur.`heureFour`,
+	commerciale.commandefournisseur.`totalFour`,
+	commerciale.commandefournisseur.`dateFour`,
+	commerciale.commandefournisseur.`etatComFour`,
+	commerciale.commandefournisseur.`numFour`,
+	commerciale.articleliste.`prixtotalAl`,
+	commerciale.articleliste.`codeFourn`,
+	commerciale.articleliste.`commandeFournisseur_idFour`,
+	commerciale.articleliste.`dateVraiAl`,
+	commerciale.articleliste.`prixUnitAl`,
+	commerciale.articleliste.`codeArticle`,
+	commerciale.articleliste.`bonLivraison_idBl`,
+	commerciale.articleliste.`designationAl`,
+	commerciale.articleliste.`typeAl`,
+	commerciale.articleliste.`idArtListe`,
+	commerciale.articleliste.`quantiteAl`
+FROM commerciale.articleliste,
+	commerciale.commandefournisseur
+WHERE 
+	 commerciale.articleliste.`commandeFournisseur_idFour` = commerciale.commandefournisseur.`idFour`]]>
+		</queryString>
+		<field name="codeLivraison" class="java.lang.Long">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="idFour" class="java.lang.Long">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="dateVraiFour" class="java.sql.Timestamp">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="fournisseur_idF" class="java.lang.Long">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="heureFour" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="totalFour" class="java.lang.Double">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="dateFour" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="etatComFour" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="numFour" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="prixtotalAl" class="java.lang.Double">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="codeFourn" class="java.lang.Long">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="commandeFournisseur_idFour" class="java.lang.Long">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="dateVraiAl" class="java.sql.Timestamp">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="prixUnitAl" class="java.lang.Double">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="codeArticle" class="java.lang.Long">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="bonLivraison_idBl" class="java.lang.Long">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="designationAl" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="typeAl" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="idArtListe" class="java.lang.Long">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="quantiteAl" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+	</subDataset>
+	<parameter name="monIdFour" class="java.lang.Long"/>
+	<queryString>
+		<![CDATA[SELECT commerciale.commandefournisseur.`dateVraiFour`,
+	commerciale.commandefournisseur.`idFour`,
+	commerciale.commandefournisseur.`totalFour`
+FROM commerciale.commandefournisseur
+WHERE 
+	 commerciale.commandefournisseur.`idFour` = 4]]>
+	</queryString>
+	<field name="dateVraiFour" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idFour" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="totalFour" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="214" splitType="Stretch">
+			<componentElement>
+				<reportElement x="10" y="20" width="520" height="80" uuid="603f5f62-82ca-44eb-a7e5-602eb6235907"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="ListeParam" uuid="50c59edb-7fbc-4687-afa4-a04b4f440cde">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:listContents height="80" width="520"/>
+				</jr:list>
+			</componentElement>
+			<textField>
+				<reportElement x="20" y="29" width="100" height="30" uuid="6fe8f446-1957-46c2-9db2-e60f4ae700e5"/>
+				<textFieldExpression><![CDATA[$F{idFour}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="20" y="-1" width="100" height="30" uuid="34c862ea-ad26-46e4-85aa-e2b23b548ced"/>
+				<text><![CDATA[idFour]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="160" y="30" width="100" height="30" uuid="b90b8e72-7440-4705-b230-a59b2399fcba"/>
+				<textFieldExpression><![CDATA[$F{dateVraiFour}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="160" y="-1" width="100" height="30" uuid="84c04872-a408-47b2-8cf9-8791891bacb1"/>
+				<text><![CDATA[dateVraiFour]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="300" y="30" width="100" height="30" uuid="4241e9b2-295d-4c88-a156-fec0f50a36c8"/>
+				<textFieldExpression><![CDATA[$F{totalFour}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="-6" width="100" height="30" uuid="cd21e27d-19b5-454f-8023-755938b1a0b8"/>
+				<text><![CDATA[totalFour]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="10" y="130" width="520" height="71" uuid="02b31557-2a3e-458f-a58b-91e08e80e207"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="ListeParam" uuid="ae09da06-f106-4c6f-aab5-babcf3dd30ee">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:listContents height="71" width="520">
+						<textField>
+							<reportElement x="25" y="17" width="100" height="30" uuid="8da18241-6ef7-4381-b975-640cf59a0138"/>
+							<textFieldExpression><![CDATA[$F{idArtListe}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="173" y="20" width="100" height="30" uuid="fb0b54c9-e61d-42ca-abce-2931701abca3"/>
+							<textFieldExpression><![CDATA[$F{prixUnitAl}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="327" y="17" width="100" height="30" uuid="5408023b-4702-46a9-a78b-ec607510dc3b"/>
+							<textFieldExpression><![CDATA[$F{designationAl}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<staticText>
+				<reportElement x="47" y="109" width="53" height="30" uuid="99dad747-fbdf-4a83-b568-9de4cb0cd84c"/>
+				<textElement>
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="109" width="100" height="30" uuid="a3e78890-bef0-40b2-9dd0-9feeb5299793"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Prix]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="350" y="112" width="100" height="30" uuid="398a0f58-42bd-450a-afff-4574b29dbce7"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[designation]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

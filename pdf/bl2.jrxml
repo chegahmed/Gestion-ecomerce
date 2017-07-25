@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
+<!-- 2016-06-14T01:15:14 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="scriptlet" pageWidth="550" pageHeight="120" columnWidth="484" leftMargin="33" rightMargin="33" topMargin="5" bottomMargin="5" whenResourceMissingType="Empty" uuid="a060470d-a250-45fe-8762-24495f09ecd9">
+	<subDataset name="dataset1" uuid="a88b5906-2133-465c-8a8e-cd89419f1911"/>
+	<field name="idArtListe" class="java.lang.Long"/>
+	<field name="designationAl" class="java.lang.String"/>
+	<field name="quantiteAl" class="java.lang.Integer"/>
+	<field name="prixUnitAl" class="java.lang.Double"/>
+	<field name="prixtotalAl" class="java.lang.Double"/>
+	<columnHeader>
+		<band height="20">
+			<staticText>
+				<reportElement x="-20" y="0" width="100" height="20" uuid="5b2e0309-faa3-49ec-8994-1f7a3809f4fb"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[REFERENCE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="0" width="200" height="20" uuid="5b2e0309-faa3-49ec-8994-1f7a3809f4fb"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[DESIGNATION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="0" width="70" height="20" uuid="5b2e0309-faa3-49ec-8994-1f7a3809f4fb"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[QUANTITE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="350" y="0" width="80" height="20" uuid="5b2e0309-faa3-49ec-8994-1f7a3809f4fb"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[P.U.HT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="0" width="70" height="20" uuid="5b2e0309-faa3-49ec-8994-1f7a3809f4fb"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[MONTANT HT]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="-20" y="0" width="100" height="20" uuid="57418b0b-d3c5-440a-9eb1-c078e9fb32e8"/>
+				<box leftPadding="10">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{idArtListe}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="80" y="0" width="200" height="20" uuid="57418b0b-d3c5-440a-9eb1-c078e9fb32e8"/>
+				<box leftPadding="10">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{designationAl}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="280" y="0" width="70" height="20" uuid="57418b0b-d3c5-440a-9eb1-c078e9fb32e8"/>
+				<box leftPadding="10">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{quantiteAl}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="350" y="0" width="80" height="20" uuid="57418b0b-d3c5-440a-9eb1-c078e9fb32e8"/>
+				<box leftPadding="10">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{prixUnitAl}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="430" y="0" width="70" height="20" uuid="57418b0b-d3c5-440a-9eb1-c078e9fb32e8"/>
+				<box leftPadding="10">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{prixtotalAl}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

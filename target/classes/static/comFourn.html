@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"  type="text/css" href="">
+	<link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+	<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="bootstrap/css/jquery.fancybox.css" rel="stylesheet" type="text/css"/>
+	<link href="bootstrap/css/main.css" rel="stylesheet" type="text/css"/>
+	
+	<link href="css/style.css" rel="stylesheet" type="text/css"/> 
+	<link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+	
+	
+<script type="text/javascript" src="angular/angular-sanitize.min.js"> </script>
+
+<script type="text/javascript" src="angular/angular.min.js"> </script>
+<script type="text/javascript" src="js/comFour.js"> </script>
+<script type="text/javascript" src="js/jquery-ui.min.js"> </script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>	
+
+<script src="angular/ui-bootstrap-tpls-1.2.4.min.js" type="text/javascript">
+</script>
+
+	
+<title>Articles</title>
+</head>
+<body background-color="white" ng-app=BonLivraison ng-controller=BonLivraisonController>
+
+<div class="container spacer" style='width: 600px ; float: left'>
+
+</div>
+
+
+
+<div class="container spacer" style='width: 600px ; float: right'>
+
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>ID </th> <th> Designation </th> <th> Quantité </th> <th> Prix total </th>
+</tr>
+ </thead>
+ 
+ <tbody>
+ <tr ng-repeat="artCom in articlesCom">
+ 
+ <td> {{artCom.idArtListe}} </td>
+ <td> {{artCom.designationAl}} </td>
+ <td> {{artCom.quantiteAl}} </td>
+ <td> {{artCom.prixtotalAl}} </td>
+ </tr>
+ 
+ </tbody>
+
+</table>
+ 
+
+</div>
+
+
+<div style='width: 600px ; float: left'>
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>ID </th> <th> Code Fournisseur </th> <th> Nom Fournisseur </th> <th> Montant </th> <th> Les articles</th> <th> Convertir</th> 
+</tr>
+ </thead>
+ 
+ <tbody>
+ <tr ng-repeat="comF in commandesF ">
+ <td> {{comF.idFour}} </td>
+ <td> {{comF.fournisseur.idF}} </td>
+ <td> {{comF.fournisseur.nomSocF}} </td>
+ <td> {{comF.totalFour}} </td>
+ <td> <button   ng-click="getArticlesCommande(comF.idFour)" class="btn btn-primary">Afficher les articles</button> </td>
+ <td> <button ng-click="addBonLivraisonFour(comF.idFour)"   class="btn btn-primary">Generer Bon de Livraison</button> </td>
+ </tr>
+ </tbody>
+
+</table>
+ 
+</div>
+
+
+
+<div style='width: 600px ; float: right'>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+<form>
+
+<div class="container spacer" style='width: 600px ; float: left'>
+<h3>Ajouter Une Commande</h3>
+
+   <div class="row">
+  <div class="col-xs-4">
+  <label>Fournisseur</label>
+  <select  ng-options="o.idF as o.nomSocF for o in fournisseurs"  ng-model="codeComF" class="form-control" >
+  </select>
+  </div>
+  <div class="col-xs-4">
+  <label>Date </label>
+    <input type="Date" ng-model="dateComF" class="form-control" placeholder="Date Commande">
+  </div>
+
+ </div>
+
+ <br>
+ 
+ <button type="submit" ng-click="ajouterCommande()" class="btn btn-primary">Ajouter La Commande</button>
+  </div>
+ 
+ 
+ <div class="container spacer" style='width: 600px ; float: right'>
+
+
+<h3>Ajouter Les Articles </h3>
+
+
+				  	<table id="table1" class="table table-bordered">
+							<tr>
+							    <th><input class='check_all' type='checkbox' onclick="select_all()"/></th>
+							    <th>S. No</th>
+							    <th>Code</th>
+							    <th>Designation</th>
+							    <th>Quantité</th>
+							    <th>Prix</th>
+							</tr>
+							<tr>
+						    	<td><input type='checkbox'/></td>
+						    	<td><span id='snum'>1.</span></td>
+						   	 	<td><input class="form-control" type='text' id='countryname_1' ng-model='codeArt[1]'/></td>
+						    	<td><input class="form-control" type='text' id='country_no_1' ng-model='desArt[1]' /></td>
+						    	<td><input class="form-control" type='text'  id='phone_code_1' ng-model='qteArt[1]'/></td>
+						    	<td><input class="form-control" type='text' id='country_code_1' ng-model='prixArt[1]'/> </td>
+						  	</tr>
+						  	
+						  	<tr>
+						    	<td><input type='checkbox'/></td>
+						    	<td><span id='snum'>1.</span></td>
+						   	 	<td><input class="form-control" type='text' id='countryname_1' ng-model='codeArt[2]'/></td>
+						    	<td><input class="form-control" type='text' id='country_no_1' ng-model='desArt[2]' /></td>
+						    	<td><input class="form-control" type='text'  id='phone_code_1' ng-model='qteArt[2]'/></td>
+						    	<td><input class="form-control" type='text' id='country_code_1' ng-model='prixArt[2]'/> </td>
+						  	</tr>
+						  	
+						  	<tr>
+						    	<td><input type='checkbox'/></td>
+						    	<td><span id='snum'>1.</span></td>
+						   	 	<td><input class="form-control" type='text' id='countryname_1' ng-model='codeArt[3]'/></td>
+						    	<td><input class="form-control" type='text' id='country_no_1' ng-model='desArt[3]' /></td>
+						    	<td><input class="form-control" type='text'  id='phone_code_1' ng-model='qteArt[3]'/></td>
+						    	<td><input class="form-control" type='text' id='country_code_1' ng-model='prixArt[3]'/> </td>
+						  	</tr>
+			
+						  	
+				  	  </table>
+				  	  <div align="left">
+					  	  <button type="button" class='btn phpbutton delete'>- Supprimer </button>
+					  	  <button type="button"   class='btn phpbutton addmore'>+ Ajouter </button>
+			  	    </div>
+
+
+</div>
+    
+
+</form>
+
+
+
+
+<div style='width: 600px ; float: left'>
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>ID </th> <th> Code Client </th> <th> Client </th> <th> Montant </th> <th> Les articles</th> <th> Convertir</th>
+</tr>
+ </thead>
+ 
+ <tbody>
+ <tr ng-repeat="blf in bonLivraisonFourn">
+ 
+ <td> {{blf}} </td>
+ <td> {{blf}} </td>
+ <td> {{blf}} </td>
+ <td> {{blf}} </td>
+ <td> <button   ng-click="getArticlesLivraison(blcl.idBl)" class="btn btn-primary">Afficher les articles</button> </td>
+ <td> <button   class="btn btn-primary">Generer La facture</button> </td>
+ </tr>
+ 
+ </tbody>
+
+</table>
+ 
+</div>
+
+
+<div style='width: 600px ; float: right'>
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>ID </th> <th> Designation </th> <th> Quantité </th> <th> Prix total </th>
+</tr>
+ </thead>
+ 
+ <tbody>
+ <tr ng-repeat="artL in articlesLivraison">
+ 
+ <td> {{artL.idArtListe}} </td>
+ <td> {{artL.designationAl}} </td>
+ <td> {{artL.quantiteAl}} </td>
+ <td> {{artL.prixtotalAl}} </td>
+ </tr>
+ 
+ </tbody>
+
+</table>
+ 
+</div>
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+
+		$(".delete").on('click', function() {
+			$('.case:checkbox:checked').parents("tr").remove();
+			$('.check_all').prop("checked", false); 
+			check();
+		});
+		var i=$('#table1 tr').length;
+
+		$(".addmore").on('click',function(){
+			count=$('#table1 tr').length;
+		    var data="<tr><td><input type='checkbox' class='case'/></td><td><span id='snum"+i+"'>"+count+".</span></td>";
+		    data +="<td><input class='form-control' type='text' id='countryname_"+i+"' ng-model='codeArt["+i+"]' /></td> <td><input class='form-control' type='text' id='country_no_"+i+"' ng-model='desArt["+i+"]' /></td><td><input class='form-control' type='text' id='phone_code_"+i+"'  ng-model='qteArt["+i+"]'  /></td><td><input class='form-control' type='text' id='country_code_"+i+"' ng-model='prixArt["+i+"]' /></td></tr>";
+			$('#table1').append(data);
+			alert(i);
+			row = i ;
+			i++;
+		});
+						
+		function select_all() {
+			$('input[class=case]:checkbox').each(function(){ 
+				if($('input[class=check_all]:checkbox:checked').length == 0){ 
+					$(this).prop("checked", false); 
+				} else {
+					$(this).prop("checked", true); 
+				} 
+			});
+		}
+
+		function check(){
+			obj=$('table tr').find('span');
+			$.each( obj, function( key, value ) {
+				id=value.id;
+				$('#'+id).html(key+1);
+			});
+		}
+
+
+          
+	
+	});
+</script>
+
+
+
+
+
+</body>
+</html>

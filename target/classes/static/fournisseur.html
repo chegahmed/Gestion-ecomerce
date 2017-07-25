@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"  type="text/css" href="">
+	<link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+	<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="bootstrap/css/jquery.fancybox.css" rel="stylesheet" type="text/css"/>
+	<link href="bootstrap/css/main.css" rel="stylesheet" type="text/css"/>
+	
+	<link href="css/style.css" rel="stylesheet" type="text/css"/>
+	
+	
+	
+<script type="text/javascript" src="angular/angular-sanitize.min.js"> </script>
+
+<script type="text/javascript" src="angular/angular.min.js"> </script>
+<script type="text/javascript" src="js/fournisseur.js"> </script>
+	
+	
+	
+	
+<title>Commerciale</title>
+</head>
+<body background-color="white" ng-app=Commerciale ng-controller=ComController>
+
+<div class="container spacer" style='width: 600px ; float: left'>
+<h3>Liste des Fournisseurs</h3>
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>ID </th> <th> NOM </th> <th> Telephone </th> 
+</tr>
+ </thead>
+ 
+ <tbody>
+ <tr ng-repeat="f in fournisseurs">
+ 
+ <td> {{f.idF}} </td>
+ <td> {{f.nomSocF}} </td>
+ <td> {{f.tel1F}} </td> 
+ </tr>
+ 
+ </tbody>
+
+</table>
+</div>
+
+
+
+<div class="container spacer" style='width: 600px ; float: right'>
+<h3>Liste des representants</h3>
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>ID </th> <th> Nom </th> <th> Ville </th> <th> Fournisseur </th>
+</tr>
+ </thead>
+ 
+ <tbody>
+ <tr ng-repeat="r in representants">
+ 
+ <td> {{r.id}} </td>
+ <td> {{r.nomRep}} </td>
+ <td> {{r.villeRep}} </td>
+ <td> {{r.fournisseur.nomSocF}} </td>
+ 
+ </tr>
+ 
+ </tbody>
+
+</table>
+</div>
+
+
+
+
+<form>
+
+<div class="container spacer" style='width: 600px ; float: left'>
+<h3>Informations du Fournisseur</h3>
+
+   <div class="row">
+  <div class="col-xs-4">
+  <label>Nom </label>
+    <input type="text" ng-model="nomF" class="form-control" placeholder="Nom">
+  </div>
+  <div class="col-xs-4">
+  <label>Famille </label>
+    <input type="text" ng-model="familleF" class="form-control" placeholder="Famille">
+  </div>
+  <div class="col-xs-4">
+  <label>Forme Juridique </label>
+    <input type="text" ng-model="formeF" class="form-control" placeholder="Forme Juridique">
+  </div>
+ </div>
+ <br>
+ 
+ <div class="row">
+  <div class="col-xs-4">
+  <label>Tel 1 </label>
+    <input type="text" ng-model="tel1F" class="form-control" placeholder="Tel 1">
+  </div>
+  <div class="col-xs-4">
+  <label>Tel 2 </label>
+    <input type="text" ng-model="tel2F" class="form-control" placeholder="Tel 2">
+  </div>
+  <div class="col-xs-4">
+  <label>Fax </label>
+    <input type="text" ng-model="faxF" class="form-control" placeholder="Fax">
+  </div>
+ </div>
+ 
+ <br>
+  <div class="row">
+  <div class="col-xs-4">
+  <label>Gsm 1 </label>
+    <input type="text" ng-model="gsm1F" class="form-control" placeholder="Gsm 1">
+  </div>
+  <div class="col-xs-4">
+  <label>Gsm 2 </label>
+    <input type="text" ng-model="gsm2F" class="form-control" placeholder="Gsm 2">
+  </div>
+  <div class="col-xs-4">
+  <label>Email 1 </label>
+    <input type="text" ng-model="email1F" class="form-control" placeholder="Email 1">
+  </div>
+ </div>
+ 
+ <br>
+  <div class="row">
+  <div class="col-xs-4">
+  <label>Email 2 </label>
+    <input type="text" ng-model="email2F" class="form-control" placeholder="Email 2">
+  </div>
+  <div class="col-xs-4">
+  <label>Adresse </label>
+    <input type="text" ng-model="adresseF" class="form-control" placeholder="Adresse ">
+  </div>
+  <div class="col-xs-4">
+  <label>Siteweb </label>
+    <input type="text" ng-model="sitewebF" class="form-control" placeholder="Siteweb">
+  </div>
+ </div>
+ 
+ <br>
+  <div class="row">
+  <div class="col-xs-4">
+  
+  
+  </div>
+  <div class="col-xs-4">
+  
+  
+  </div>
+  <div class="col-xs-4">
+  <label>Patente</label>
+    <input type="text" ng-model="patenteF" class="form-control" placeholder="Patente">
+  </div>
+ </div>
+ 
+ <br>
+  <div class="row">
+  <div class="col-xs-4">
+  <label>Registre</label>
+    <input type="text" ng-model="registreF" class="form-control" placeholder="Registre">
+  </div>
+  <div class="col-xs-4">
+  
+  
+  </div>
+  <div class="col-xs-4">
+  <label>ICE </label>
+    <input type="text" ng-model="iceF" class="form-control" placeholder="ICE">
+  </div>
+ </div>
+ <br>
+ 
+ <button type="submit" ng-click="ajouterRepresentant()" class="btn btn-primary">Ajouter Fournisseur </button>
+  </div>
+ 
+ 
+ <div class="container spacer" style='width: 600px ; float: right'>
+<h3>Informations du representant</h3>
+
+<div class="row">
+  <div class="col-xs-4">
+  <label>Nom </label>
+    <input type="text" ng-model="nomRep" class="form-control" placeholder="Nom">
+  </div>
+  <div class="col-xs-4">
+  <label>Prenom </label>
+    <input type="text" ng-model="prenomRep" class="form-control" placeholder="Prenom">
+  </div>
+  <div class="col-xs-4">
+  <label>Ville </label>
+    <input type="text" ng-model="villeRep" class="form-control" placeholder="Ville">
+  </div>
+ </div>
+ <br>
+ 
+ <div class="row">
+  <div class="col-xs-4">
+  <label>Telephone </label>
+    <input type="text" ng-model="telRep" class="form-control" placeholder="Tel">
+  </div>
+  <div class="col-xs-4">
+  <label>Gsm 1 </label>
+    <input type="text" ng-model="gsm1rep" class="form-control" placeholder="GSM 1">
+  </div>
+  <div class="col-xs-4">
+  <label>Gsm 2 </label>
+    <input type="text" ng-model="gsm2Rep" class="form-control" placeholder="GSM 2">
+  </div>
+ </div>
+ 
+ <br>
+  <div class="row">
+  <div class="col-xs-4">
+  <label>Email  </label>
+    <input type="text" ng-model="emailRep" class="form-control" placeholder="EMAIL">
+  </div>
+
+ </div>
+
+
+
+
+</div>
+
+</form>
+
+
+
+
+</body>
+</html>

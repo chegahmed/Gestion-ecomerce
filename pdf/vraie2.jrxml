@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
+<!-- 2016-05-29T18:27:44 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="scriptlet" pageWidth="208" pageHeight="50" columnWidth="204" leftMargin="3" rightMargin="1" topMargin="1" bottomMargin="1" whenResourceMissingType="Empty" uuid="a060470d-a250-45fe-8762-24495f09ecd9">
+	<subDataset name="dataset1" uuid="a88b5906-2133-465c-8a8e-cd89419f1911"/>
+	<field name="nomSoc" class="java.lang.String"/>
+	<field name="adresse" class="java.lang.String"/>
+	<columnHeader>
+		<band height="21">
+			<textField>
+				<reportElement x="1" y="1" width="200" height="20" uuid="576ec637-d5e2-4eae-9185-4555bfbf17a0">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomSoc}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+			<textField>
+				<reportElement x="-1" y="0" width="200" height="21" uuid="ea5290ca-a909-42f4-b50a-e13d34aef521">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{adresse}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

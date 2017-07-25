@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"  type="text/css" href="">
+	<link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+	<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="bootstrap/css/jquery.fancybox.css" rel="stylesheet" type="text/css"/>
+	<link href="bootstrap/css/main.css" rel="stylesheet" type="text/css"/>
+	
+	<link href="css/style.css" rel="stylesheet" type="text/css"/>
+	
+	
+	
+<script type="text/javascript" src="angular/angular-sanitize.min.js"> </script>
+
+<script type="text/javascript" src="angular/angular.min.js"> </script>
+<script type="text/javascript" src="js/app.js"> </script>
+<script type="text/javascript" src="js/paiement.js"> </script>	
+
+<script type="text/javascript">
+  function showSelect(modePaie){
+    var divIds= new Array('Espece','Virement Bancaire','Cheque');
+    for(var i=0; i<divIds.length;i++){
+      document.getElementById(divIds[i]).style.display = (i==modePaie)?'block':'none';
+    }
+  }
+</script>
+	
+	
+	
+<title>Commerciale</title>
+</head>
+<body background-color="white" ng-app=Paiement ng-controller=PaiementController>
+
+
+<div class="container spacer" style='width: 600px ; float: left'>
+<h3>Liste des clients</h3>
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>ID </th> <th> NOM </th> <th> Etat </th> <th> Total dû </th> </th>
+</tr>
+ </thead>
+ 
+ <tbody>
+ <tr ng-repeat="c in clients">
+ 
+ <td> {{c.idCl}} </td>
+ <td> {{c.nomSoc}} </td>
+ <td> {{c.etat}} </td>
+ <td> {{c.totaldu}} </td>
+ 
+ </tr>
+ 
+ </tbody>
+
+</table>
+</div>
+
+
+
+<div class="container spacer" style='width: 600px ; float: right'>
+<h3>Mode de paiement</h3>
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>Code </th> <th> Type </th> <th> Code Client </th> <th> Nom Client  </th>
+</tr>
+ </thead>
+ 
+ <tbody>
+ <tr ng-repeat="m in modepaiements">
+ 
+ <td> {{m.id}} </td>
+ <td> {{m.nom}} </td>
+ <td> {{m.client.idCl}} </td>
+ <td> {{m.client.nomSoc}} </td>
+ 
+ </tr>
+ 
+ </tbody>
+
+</table>
+</div>
+
+
+
+<form name="paiement">
+
+<div class="container spacer" style='width: 600px ; float: left'>
+<h3>Informations du mode Paiement</h3>
+
+ 
+ <div class="row">
+  <div class="col-xs-6">
+  <label>Client</label>
+  <select ng-options="o.idCl as o.nomSoc for o in clients"  ng-model="codeCl" class="form-control" >
+  </select>
+  </div>
+  <div class="col-xs-6">
+  <label>Mode de paiement </label>
+   <select name="modePaie"  ng-model="modePaie" class="form-control" onChange="showSelect(paiement.modePaie.selectedIndex);" >
+          <option  value="Espece" > Espece</option>
+          <option  value="Virement Bancaire" > Virement Bancaire </option>
+          <option  value="Cheque" > Cheque</option>
+  </select>
+  </div>
+ </div>
+ 
+ <br>
+ 
+ <div id="Espece" style="display:none">  </div>
+ 
+  <div class="row" id="Virement Bancaire" style="display:none">
+  <div class="col-xs-6">
+  <label>Numero du compte </label>
+    <input type="text" ng-model="numCompte" class="form-control" placeholder="numero">
+  </div>
+  <div class="col-xs-6">
+  <label>Nom de la Banque </label>
+     <select name="nomAgence"  ng-model="nomBanque" class="form-control" >
+          <option  value="Banque Populaire" > Banque Populaire </option>
+          <option  value="Credit Agricole" > Credit Agricole </option>
+          <option  value="BMCE" > BMCE </option>
+          <option  value="BMCI" > BMCI </option>
+  </select>
+  <br>
+  </div>
+
+ </div>
+
+ 
+  <div class="row" id="Cheque" style="display:none">
+  <div class="col-xs-6">
+  <label>Numero du Chèque </label>
+    <input type="text" ng-model="numCheque" class="form-control" placeholder="numero Chèque">
+    <br>
+  </div>
+   
+ </div>
+ 
+ <button type="submit" ng-click="ajouterPaiement()" class="btn btn-primary">Ajouter MP</button>
+  </div>
+ 
+</div>
+ 
+    
+    
+
+</form>
+
+
+
+
+</body>
+</html>

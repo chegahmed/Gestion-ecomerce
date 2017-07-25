@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
+<!-- 2016-05-19T22:41:22 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CommandeClient" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="78c010d0-0ed5-498d-b3f9-3b17e2f0e72f">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="donneesArticles" uuid="89a11474-7955-46f5-9d12-fd03063114db">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter "/>
+		<parameter name="idComCl" class="java.lang.Long"/>
+		<queryString>
+			<![CDATA[SELECT commerciale.articleliste.`quantiteAl`,
+	commerciale.articleliste.`prixUnitAl`,
+	commerciale.articleliste.`designationAl`
+FROM commerciale.articleliste
+WHERE 
+	 commerciale.articleliste.`commandeClient_idComCl` = $P{idComCl}]]>
+		</queryString>
+		<field name="quantiteAl" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="prixUnitAl" class="java.lang.Double">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="designationAl" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+	</subDataset>
+	<parameter name="idComCl" class="java.lang.Long"/>
+	<queryString>
+		<![CDATA[SELECT commerciale.client.`nomSoc`,
+	commerciale.client.tel1,
+	commerciale.client.fax,
+	commerciale.client.adresse,
+	commerciale.commandeclient.`totalComCl`,
+	commerciale.commandeclient.`dateComCl`,
+	commerciale.commandeclient.`idComCl`
+FROM commerciale.commandeclient,
+	commerciale.client
+WHERE 
+	 commerciale.commandeclient.`codeClient` = commerciale.client.`idCl` 
+	 AND ( 
+	 commerciale.commandeclient.`idComCl` = $P{idComCl})]]>
+	</queryString>
+	<field name="nomSoc" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tel1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fax" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="adresse" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="totalComCl" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dateComCl" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idComCl" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="181" splitType="Stretch">
+			<image>
+				<reportElement x="-10" y="0" width="110" height="68" uuid="cd8d3d26-7068-49c1-bc37-32a7128ea648"/>
+				<imageExpression><![CDATA["M:/tof niger/Méditel logo.png"]]></imageExpression>
+			</image>
+			<frame>
+				<reportElement x="380" y="0" width="179" height="68" uuid="59c20a89-d46b-4b19-8536-4377b0187b50"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="1.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="1.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+				<staticText>
+					<reportElement x="11" y="12" width="77" height="18" uuid="9512d230-bbe9-4228-a084-464e347f74e9"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<text><![CDATA[N°Commande :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="13" y="41" width="87" height="18" uuid="c6ca16be-9a27-4448-921f-731bed8ad6cf"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<text><![CDATA[Date Commande :]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="91" y="11" width="81" height="19" uuid="44e69d70-6879-437b-942a-b4814413f4a8"/>
+					<textFieldExpression><![CDATA[$F{idComCl}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="101" y="41" width="71" height="18" uuid="9a079f43-f495-44e4-827b-1a63b92029e1"/>
+					<textFieldExpression><![CDATA[$F{dateComCl}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement x="-10" y="80" width="230" height="100" uuid="c94db2fb-efec-43f2-a592-04afab7e4deb"/>
+				<box>
+					<topPen lineWidth="1.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="1.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+				<staticText>
+					<reportElement x="10" y="10" width="70" height="20" uuid="3469e34e-127a-4d37-a3f0-07e0b3af89ae"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Entreprise :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="11" y="41" width="70" height="20" uuid="c294014c-1f56-4dde-8afd-bc3149e4bbe9"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Adresse :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="12" y="71" width="70" height="20" uuid="5fc1ca48-5b8a-492e-b13d-fe808d23a997"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Telephone :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="81" y="12" width="129" height="20" uuid="f276796b-fe04-4f7c-9234-83095c6ff749"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Nom de L'entreprise]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="81" y="43" width="129" height="20" uuid="9dafb5a1-48e7-4a86-946b-ace6a235b843"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Adresse de L'entreprise]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="82" y="71" width="129" height="20" uuid="3ec56d5a-aaec-49c0-8681-41eb544bb205"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[0685741235]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement x="330" y="81" width="230" height="100" uuid="529a8ff1-fcaa-4abf-9f05-b85e11e72c0f"/>
+				<box>
+					<topPen lineWidth="1.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="1.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+				<staticText>
+					<reportElement x="10" y="10" width="70" height="20" uuid="816f0880-58c6-4b31-a1ba-e9aa9e964109"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Entreprise :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="11" y="41" width="70" height="20" uuid="405f7280-bc89-47dc-8ba7-640d6f82002b"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Adresse :]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="12" y="71" width="70" height="20" uuid="dc1b9950-fb64-43f2-9d87-c5bb815d50de"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Telephone :]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="84" y="9" width="139" height="20" uuid="7a0b94b7-7993-493f-a752-d8021a83de3a"/>
+					<textFieldExpression><![CDATA[$F{nomSoc}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="86" y="42" width="137" height="18" uuid="c7fd61b5-9e99-4291-9e0a-de1901d41c4b"/>
+					<textFieldExpression><![CDATA[$F{adresse}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="86" y="71" width="137" height="19" uuid="fce5c595-4e1e-4d4b-8cc6-a195f2b54248"/>
+					<textFieldExpression><![CDATA[$F{tel1}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="29" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="18" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="297" splitType="Stretch">
+			<componentElement>
+				<reportElement x="0" y="20" width="540" height="90" uuid="3323efe0-db2c-421c-aa6c-40f1650cdf89">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="donneesArticles" uuid="39b5b00a-f587-4c76-8b31-f6a28abb2c41">
+						<datasetParameter name="idComCl">
+							<datasetParameterExpression><![CDATA[$P{idComCl}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="120" uuid="bb16a414-7852-43ca-afd7-d64e694808bb">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne1"/>
+						<jr:tableHeader style="Table_TH" height="30" rowSpan="1"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="120" height="30" uuid="1ac8b4a4-5b73-4986-941c-1dca0f1bcdd5"/>
+								<text><![CDATA[designationAl]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="120" height="30" uuid="e60a67d5-3d52-4e90-b7d4-7ee8ae8f95e6"/>
+								<textFieldExpression><![CDATA[$F{designationAl}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="164" uuid="baf62f99-256d-4a3e-8a18-1f4429e1dd3f">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne2"/>
+						<jr:tableHeader style="Table_TH" height="30" rowSpan="1"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="164" height="30" uuid="fc020ccd-f778-42f4-b675-e32c3e892b1a"/>
+								<text><![CDATA[quantiteAl]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="164" height="30" uuid="032d1366-6da2-405e-a8ae-d4e3a1e6c233"/>
+								<textFieldExpression><![CDATA[$F{quantiteAl}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="140" uuid="0e7219bb-2685-4562-8380-319a66f9abcb">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne3"/>
+						<jr:tableHeader style="Table_TH" height="30" rowSpan="1"/>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="140" height="30" uuid="1b96d745-2657-46a1-ba6b-2a0f94b33c0e"/>
+								<text><![CDATA[prixUnitAl]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="140" height="30" uuid="a5a8dac7-961b-4665-89aa-7679dfc6cfb8"/>
+								<textFieldExpression><![CDATA[$F{prixUnitAl}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="126" uuid="457e90fe-e2a2-48ea-b941-cb83e4d4a48f">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Colonne4"/>
+						<jr:tableHeader style="Table_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="126" height="30" uuid="f3ef6156-3e29-4abd-85fc-d2e2d7ab8fd6"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="14"/>
+								</textElement>
+								<text><![CDATA[Total Commande]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:columnHeader style="Table_CH" height="30" rowSpan="1"/>
+						<jr:detailCell style="Table_TD" height="30"/>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement positionType="Float" x="280" y="110" width="140" height="30" uuid="6d323d7c-c383-4fa4-8b34-d2ae88eb10c9"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Total Commande]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="420" y="110" width="120" height="30" uuid="72751a29-f193-4b0e-bb58-3de9ed15f727"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField>
+				<reportElement positionType="Float" x="416" y="110" width="120" height="30" uuid="bd0b8695-ba85-4da5-9a14-8304a25e9dca"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalComCl}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="32" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="90" splitType="Stretch">
+			<staticText>
+				<reportElement x="-20" y="50" width="595" height="20" uuid="eda2f784-0384-4432-989e-b5938c1900a7"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Telephone : +212 5 56 36 35 84                Email : entreprise@electrique.ma]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-20" y="30" width="595" height="20" uuid="f1c214f7-4e44-41af-abf1-08585baa968e"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[28 Avenue Mohammed V , Parc 33600 Mohammedia Maroc]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

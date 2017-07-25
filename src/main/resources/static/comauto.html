@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"  type="text/css" href="">
+	<link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+	<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="bootstrap/css/jquery.fancybox.css" rel="stylesheet" type="text/css"/>
+	<link href="bootstrap/css/main.css" rel="stylesheet" type="text/css"/>
+	
+	<link href="css/style.css" rel="stylesheet" type="text/css"/>
+	<link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+	
+	
+<script type="text/javascript" src="angular/angular-sanitize.min.js"> </script>
+
+<script type="text/javascript" src="angular/angular.min.js"> </script>
+<script type="text/javascript" src="js/articles.js"> </script>
+<script type="text/javascript" src="js/jquery-ui.min.js"> </script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>	
+<title>Auto</title>
+</head>
+
+<body>
+<h1 align="center"> AUTOCOMPLETE AJOUTER SUPPRIMER</h1>
+
+				<form id='students' method='post' name='students' action='search.php'>
+				  <div class="table-responsive">
+				  	<table class="table table-bordered" style="width:1000px ; max-width: 100% ; ">
+							<tr>
+							    <th><input class='check_all' type='checkbox' onclick="select_all()"/></th>
+							    <th>S. No</th>
+							    <th>Country Name</th>
+							    <th>Country Number</th>
+							    <th>Country Phone code</th>
+							    <th>Country code</th>
+							</tr>
+							<tr>
+						    	<td><input type='checkbox' class='case'/></td>
+						    	<td><span id='snum'>1.</span></td>
+						   	 	<td><input class="form-control" type='text' id='countryname_1' name='countryname[]'/></td>
+						    	<td><input class="form-control" type='text' id='country_no_1' name='country_no[]'/></td>
+						    	<td><input class="form-control" type='text' id='phone_code_1' name='phone_code[]'/></td>
+						    	<td><input class="form-control" type='text' id='country_code_1' name='country_code[]'/> </td>
+						  	</tr>
+				  	  </table>
+				  	  <div align="left">
+					  	  <button type="button" class='btn phpbutton delete'>- Supprimer </button>
+					  	  <button type="button" class='btn phpbutton addmore'>+ Ajouter </button>
+			  	    </div>
+					</div>
+				</form>
+
+
+<script src="js/auto.js"></script>
+</body>
+</html>

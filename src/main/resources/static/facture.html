@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"  type="text/css" href="">
+	<link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+	<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="bootstrap/css/jquery.fancybox.css" rel="stylesheet" type="text/css"/>
+	<link href="bootstrap/css/main.css" rel="stylesheet" type="text/css"/>
+	
+	<link href="css/style.css" rel="stylesheet" type="text/css"/>
+	<link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+	
+	
+<script type="text/javascript" src="angular/angular-sanitize.min.js"> </script>
+
+<script type="text/javascript" src="angular/angular.min.js"> </script>
+<script type="text/javascript" src="js/facture.js"> </script>
+<script type="text/javascript" src="js/jquery-ui.min.js"> </script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>	
+
+<script src="angular/ui-bootstrap-tpls-1.2.4.min.js" type="text/javascript">
+</script>
+
+	
+<title>Articles</title>
+</head>
+
+<body background-color="white" ng-app=Facture ng-controller=FactureController>
+
+<table>
+<tr> <td>
+
+<div style='width: 600px ; float: left'>
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>ID </th> <th> Client </th> <th> Type Facture </th> <th> Etat </th>  <th> Montant </th> <th> Les articles</th> <th> Reglement</th>
+</tr>
+ </thead>
+ 
+ <tbody>
+ <tr ng-repeat="fac in factureClient">
+ 
+ <td> {{fac.idFac}} </td>
+ <td> {{fac.client.nomSoc}} </td>
+ <td> {{fac.categorieFac}} </td>
+ <td> {{fac.etatFac}} </td>
+ <td> {{fac.totalFac}} </td>
+ <td> <button   ng-click="getArticlesFacture(fac.idFac)" class="btn btn-primary">Afficher les articles</button> </td>
+ <td> <button ng-click="paiementFacture(fac.idFac , fac.client.idCl , fac.client.nomSoc , fac.totalFac )"   class="btn btn-primary">Regler la Facture</button> </td>
+ </tr>
+ 
+ </tbody>
+
+</table>
+ 
+</div>
+
+</td>
+<td>
+
+
+<form name="paiement">
+
+<div class="container spacer" style='width: 600px ; float: left'>
+<h3>Informations du mode Paiement</h3>
+
+ 
+ <div class="row">
+  <div class="col-xs-4">
+  
+  
+  <label>Client </label>
+    <input type="text" ng-model="ClientFac" ng-value="nomClient" class="form-control" placeholder="numero Chèque">
+    <br>
+  </div>
+
+  <div class="col-xs-4">
+  <label>Mode de Paiement </label>
+  <select ng-options="m.idMode as m.nomMode for m in modes"  ng-model="modePaiement" class="form-control" >
+  </select>
+  </div>
+  
+  <div class="col-xs-4">
+  
+  <label>Montant </label>
+    <input type="text" ng-model="montantFac" class="form-control" placeholder="Montant de paiement">
+    <br>
+  </div>
+  
+ </div>
+ 
+ <br>
+ 
+
+ 
+ <button type="submit" ng-click="ajouterPaiement()" class="btn btn-primary">Regler la Facture</button>
+  </div>
+ 
+</div>
+ 
+    
+    
+
+</form> 
+
+
+
+
+
+
+<div style='width: 600px ; float: right'>
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>ID </th> <th> Designation </th> <th> Quantité </th> <th> Prix total </th>
+</tr>
+ </thead>
+ 
+ <tbody>
+ <tr ng-repeat="artFac in articlesFacture">
+ 
+ <td> {{artFac.idArtListe}} </td>
+ <td> {{artFac.designationAl}} </td>
+ <td> {{artFac.quantiteAl}} </td>
+ <td> {{artFac.prixtotalAl}} </td>
+ </tr>
+ 
+ </tbody>
+
+</table>
+ 
+</div>
+
+</td>
+</tr>
+
+
+<tr>
+<td>
+
+<div style='width: 600px ; float: left'>
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>ID </th> <th> Code Client </th> <th> Client </th> <th> Montant </th> <th> Les articles</th> <th> Convertir</th>
+</tr>
+ </thead>
+ 
+ <tbody>
+ <tr ng-repeat="blcl in bonLivraisonClient">
+ 
+ <td> {{blcl.idBl}} </td>
+ <td> {{blcl.client.idCl}} </td>
+ <td> {{blcl.client.nomSoc}} </td>
+ <td> {{blcl.totalttcBl}} </td>
+ <td> <button   ng-click="getArticlesLivraison(blcl.idBl)" class="btn btn-primary">Afficher les articles</button> </td>
+ <td> <button  ng-click="addFactureAccompteClient(blcl.idBl)"  class="btn btn-primary">Generer La facture</button> </td>
+ </tr>
+ 
+ </tbody>
+
+</table>
+ 
+</div>
+
+</td>
+
+<td>
+
+<div style='width: 600px ; float: right'>
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>ID </th> <th> Designation </th> <th> Quantité </th> <th> Prix total </th>
+</tr>
+ </thead>
+ 
+ <tbody>
+ <tr ng-repeat="artL in articlesLivraison">
+ 
+ <td> {{artL.idArtListe}} </td>
+ <td> {{artL.designationAl}} </td>
+ <td> {{artL.quantiteAl}} </td>
+ <td> {{artL.prixtotalAl}} </td>
+ </tr>
+ 
+ </tbody>
+
+</table>
+ 
+</div>
+
+</td>
+</tr>
+</table>
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+
+		$(".delete").on('click', function() {
+			$('.case:checkbox:checked').parents("tr").remove();
+			$('.check_all').prop("checked", false); 
+			check();
+		});
+		var i=$('#table1 tr').length;
+
+		$(".addmore").on('click',function(){
+			count=$('#table1 tr').length;
+		    var data="<tr><td><input type='checkbox' class='case'/></td><td><span id='snum"+i+"'>"+count+".</span></td>";
+		    data +="<td><input class='form-control' type='text' id='countryname_"+i+"' ng-model='codeArt["+i+"]' /></td> <td><input class='form-control' type='text' id='country_no_"+i+"' ng-model='desArt["+i+"]' /></td><td><input class='form-control' type='text' id='phone_code_"+i+"'  ng-model='qteArt["+i+"]'  /></td><td><input class='form-control' type='text' id='country_code_"+i+"' ng-model='prixArt["+i+"]' /></td></tr>";
+			$('#table1').append(data);
+			alert(i);
+			row = i ;
+			i++;
+		});
+						
+		function select_all() {
+			$('input[class=case]:checkbox').each(function(){ 
+				if($('input[class=check_all]:checkbox:checked').length == 0){ 
+					$(this).prop("checked", false); 
+				} else {
+					$(this).prop("checked", true); 
+				} 
+			});
+		}
+
+		function check(){
+			obj=$('table tr').find('span');
+			$.each( obj, function( key, value ) {
+				id=value.id;
+				$('#'+id).html(key+1);
+			});
+		}
+
+
+          
+	
+	});
+</script>
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
+<!-- 2016-06-29T01:11:17 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="scriptlet" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="30" bottomMargin="30" whenResourceMissingType="Empty" uuid="2e17e265-d9d1-4661-9d88-0c6a5e89de0b">
+	<subDataset name="dataset1" uuid="e26a4a20-c0eb-417e-888f-26698bed1c93">
+		<field name="dateReleve" class="java.lang.String"/>
+		<field name="totalReleve" class="java.lang.Double"/>
+	</subDataset>
+	<parameter name="factures" class="java.util.Collection"/>
+	<field name="dateReleve" class="java.lang.String"/>
+	<field name="totalReleve" class="java.lang.Double"/>
+	<title>
+		<band height="183" splitType="Stretch">
+			<frame>
+				<reportElement x="310" y="30" width="215" height="78" uuid="79784f86-b033-4f43-ba0a-4f9101802f7d"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<staticText>
+					<reportElement x="74" y="1" width="68" height="30" uuid="e934b566-272d-4685-b503-779d4345103f"/>
+					<textElement verticalAlignment="Bottom">
+						<font size="18"/>
+					</textElement>
+					<text><![CDATA[Bacelec]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="25" y="31" width="178" height="28" uuid="30998308-0143-4601-a1c3-9211834d0c49"/>
+					<textElement verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[163, BD . BOURGOGNE MAG.4]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="71" y="61" width="84" height="18" uuid="af77f2a0-f615-4ecd-9f2a-4fd824f43081"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[CASABLANCA]]></text>
+				</staticText>
+			</frame>
+			<staticText>
+				<reportElement x="120" y="1" width="211" height="39" uuid="63ae5860-b926-42aa-9dd1-bd68471dab45"/>
+				<textElement>
+					<font size="20" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[RELEVE DE COMPTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="140" width="553" height="22" uuid="a8c3f8ce-d839-4de4-8c24-0262822feb14"/>
+				<text><![CDATA[Veuillez trouver ci-après le relevé de votre compte dont vous nous êtes redevable, sauf erreur ou omission de notre part.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="347" y="120" width="73" height="18" uuid="122cb739-66f9-4f26-b800-bc810e682868"/>
+				<text><![CDATA[Casablanca, le ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="162" width="210" height="20" uuid="3995a753-90b1-4f26-8c2a-1313c7d5a30d"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[RELEVE MENSUEL MOIS : AVRIL / 2016]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="420" y="120" width="103" height="18" uuid="f4bf42ff-292f-4717-b515-773eac7ef2d5"/>
+				<textFieldExpression><![CDATA[$F{dateReleve}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band/>
+	</columnHeader>
+	<detail>
+		<band height="300" splitType="Stretch">
+			<subreport>
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="-8" y="0" width="550" height="120" uuid="cfca8daf-b816-40da-9bab-ff763fd9a9df">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<subreportParameter name="$P{factures}">
+					<subreportParameterExpression><![CDATA[]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{factures})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["pdf/sreleveCompte.jasper"]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement positionType="Float" x="370" y="182" width="130" height="30" uuid="776cde64-c941-4634-9512-1949d87e377c"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Le service commercial.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="220" width="410" height="20" uuid="3c35258a-a8c2-44eb-ba3b-0b96d1436f72"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Veuillez agréer, Madame, Monsieur, l'assurance de notre consideration distinguée]]></text>
+			</staticText>
+			<frame>
+				<reportElement positionType="Float" x="340" y="130" width="202" height="38" uuid="8e250936-11d5-40a2-afad-0da4f31da647"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<staticText>
+					<reportElement x="20" y="1" width="80" height="37" uuid="89007eaf-5df8-4b61-b2cf-0170ba4346cc"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="16"/>
+					</textElement>
+					<text><![CDATA[Solde]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="100" y="1" width="102" height="37" uuid="91bd4bf7-408d-43ec-a950-aa0d2c72199e"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="16"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{totalReleve}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="69">
+			<staticText>
+				<reportElement x="-20" y="15" width="580" height="20" uuid="f68ff4f4-79b6-4732-b1e4-a494b0ebaf98"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Siège Social : 163 , Bd. Bourgogne Résidence Souhad Al Jarrah Mag. n°4,Bourgogne (près d'Acima) - Casablanca - Maroc]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-20" y="35" width="580" height="15" uuid="d092b6ee-9222-442e-abf5-aedf5a823b9b"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Tel : 05 22 27 75 95 / 05 22 29 68 21 - Fax : 05 22 29 68 21 - E-mail : bacelec.sarl@hotmail.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-20" y="50" width="580" height="15" uuid="ba2e647a-950b-48c6-8339-8995993d1046"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[s.a.r.l au capital : 1.000.000.00 Dhs - R.C. 92169 - IF : 01003779 - Patente : 35602692 - C.N.S.S. 6002167]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-30" y="15" width="595" height="1" uuid="7696422e-68cd-4212-adbc-699327c80d39"/>
+			</line>
+			<line>
+				<reportElement x="-30" y="68" width="595" height="1" uuid="52645375-4126-481b-aaa1-29fe85d8227d"/>
+			</line>
+		</band>
+	</pageFooter>
+</jasperReport>

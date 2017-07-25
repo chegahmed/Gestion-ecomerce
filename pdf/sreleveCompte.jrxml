@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.0.final using JasperReports Library version 6.2.0  -->
+<!-- 2016-06-29T01:12:56 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="scriptlet" pageWidth="550" pageHeight="155" columnWidth="484" leftMargin="33" rightMargin="33" topMargin="5" bottomMargin="5" whenResourceMissingType="Empty" uuid="a060470d-a250-45fe-8762-24495f09ecd9">
+	<subDataset name="dataset1" uuid="a88b5906-2133-465c-8a8e-cd89419f1911"/>
+	<field name="idFac" class="java.lang.Long"/>
+	<field name="dateFac" class="java.lang.String"/>
+	<field name="paiement" class="java.lang.String"/>
+	<field name="totalttcFac" class="java.lang.Double"/>
+	<columnHeader>
+		<band height="33">
+			<staticText>
+				<reportElement x="-20" y="0" width="80" height="33" uuid="5b2e0309-faa3-49ec-8994-1f7a3809f4fb"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="0" width="70" height="33" uuid="5b2e0309-faa3-49ec-8994-1f7a3809f4fb"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[N° Facture ou Avoir]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="0" width="60" height="33" uuid="5b2e0309-faa3-49ec-8994-1f7a3809f4fb"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Montant Facturé]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="0" width="60" height="33" uuid="5b2e0309-faa3-49ec-8994-1f7a3809f4fb"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Reste à Encaisser]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="0" width="60" height="33" uuid="5b2e0309-faa3-49ec-8994-1f7a3809f4fb"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Reste à Remb]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="0" width="60" height="33" uuid="a681f4fd-4888-4e9a-bbbd-42fa9f690a3e"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Date Encaiss.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="0" width="70" height="33" uuid="55db757c-2b6f-4240-b7cb-75cf0e7e98b5"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Montant Encaissé]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="440" y="0" width="70" height="33" uuid="8f6a5b56-bdd9-40d4-b13f-582f8ccbabe5"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Mode de paiement]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="-20" y="0" width="80" height="20" uuid="57418b0b-d3c5-440a-9eb1-c078e9fb32e8"/>
+				<box leftPadding="10">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dateFac}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="60" y="0" width="70" height="20" uuid="57418b0b-d3c5-440a-9eb1-c078e9fb32e8"/>
+				<box leftPadding="10">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idFac}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="130" y="0" width="60" height="20" uuid="57418b0b-d3c5-440a-9eb1-c078e9fb32e8"/>
+				<box leftPadding="10">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalttcFac}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="190" y="0" width="60" height="20" uuid="57418b0b-d3c5-440a-9eb1-c078e9fb32e8"/>
+				<box leftPadding="10">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalttcFac}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="250" y="0" width="60" height="20" uuid="57418b0b-d3c5-440a-9eb1-c078e9fb32e8"/>
+				<box leftPadding="10">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="310" y="0" width="60" height="20" uuid="f42bd5ff-8414-4d4b-a9f5-6f44be8ba4e6"/>
+				<box leftPadding="10">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="370" y="0" width="70" height="20" uuid="27942610-f0ca-411d-a8ca-a44a46bd41fe"/>
+				<box leftPadding="10">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="440" y="0" width="70" height="20" uuid="2e339bbb-c31f-4323-8b49-baa37b4455e9"/>
+				<box leftPadding="10">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{paiement}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

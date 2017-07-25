@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"  type="text/css" href="">
+	
+	<link href="/src/main/resources/static/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+	
+	<link href="/src/main/resources/static/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+	
+	<link href="/src/main/resources/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+	<link href="/src/main/resources/static/bootstrap/css/jquery.fancybox.css" rel="stylesheet" type="text/css"/>
+	<link href="/src/main/resources/static/bootstrap/css/main.css" rel="stylesheet" type="text/css"/>
+	<link href="/src/main/resources/static/bootstrap/css/owl.carousel.css" rel="stylesheet" type="text/css"/>
+	<link href="/src/main/resources/static/bootstrap/css/owl.theme.css" rel="stylesheet" type="text/css"/>
+	<script type="text/javascript" src="/src/main/resources/static/bootstrap/js/bootstrap.min.js">
+	</script>
+	<script type="text/javascript" src="/src/main/resources/static/bootstrap/js/jquery.fancybox.js">
+	</script>
+	<script type="text/javascript" src="/src/main/resources/static/bootstrap/js/jquery.js">
+	</script>
+	<script type="text/javascript" src="/src/main/resources/static/bootstrap/js/owl.carousel.min.js">
+	</script>
+	<script type="text/javascript" src="/src/main/resources/static/bootstrap/js/respond.min.js">
+	</script>
+	<link href="/src/main/resources/static/css/style.css" rel="stylesheet" type="text/css"/>
+	<link href="/src/main/resources/static/css/main.css" rel="stylesheet" type="text/css"/>
+	
+	
+	
+	<link href="css/style.css" rel="stylesheet" type="text/css"/>
+	<link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+	<script type="text/javascript" src="/src/main/resources/static/angular/angular-sanitize.min.js"></script>
+		<script type="text/javascript" src="/src/main/resources/static/angular/angular.min.js"></script>
+		<script type="text/javascript" src="/src/main/resources/static/angular/ui-bootstrap-tpls-1.2.4.min.js"></script>
+		<script type="text/javascript" src="/src/main/resources/static/js/boncommande.js"></script>
+	
+<script type="text/javascript" src="angular/angular-sanitize.min.js"> </script>
+
+<script type="text/javascript" src="angular/angular.min.js"> </script>
+<script type="text/javascript" src="js/boncommande.js"> </script>
+<script type="text/javascript" src="js/jquery-ui.min.js"> </script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>	
+
+<script src="angular/ui-bootstrap-tpls-1.2.4.min.js" type="text/javascript">
+</script>
+
+	
+<title>Articles</title>
+</head>
+<body background-color="white" ng-app=BonLivraison ng-controller=BonLivraisonController>
+
+<div class="container spacer" style='width: 600px ; float: left'>
+<h3>Liste des Articles</h3>
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>ID </th> <th> Designation</th> <th> Stock </th> <th> Prix Vente </th>
+</tr>
+ </thead>
+ 
+ <tbody>
+ <tr ng-repeat="a in articles">
+ 
+ <td> {{a.idArt}} </td>
+ <td> {{a.designation}} </td>
+ <td> {{a.stockreel}} </td>
+ <td> {{a.prixvente}} </td>
+ 
+ </tr>
+ 
+ </tbody>
+
+</table>
+</div>
+
+
+
+<div class="container spacer" style='width: 600px ; float: right'>
+
+<form>
+<h3>Ajout des articles</h3>
+
+   <div class="row">
+  <div class="col-xs-4">
+  <label>Designation </label>
+    <input type="text" ng-model="designation"  class="form-control" placeholder="Designation">
+  </div>
+  <div class="col-xs-4">
+  <label>Etat </label>
+  <select name="etat"  ng-model="etat" class="form-control" >
+          <option  value="Actif" > Actif</option>
+          <option  value="Bloqué" > Bloqué</option>
+  </select>
+  </div>
+  <div class="col-xs-4">
+  <label>Stock minimal </label>
+    <input type="text" ng-model="stockmin" class="form-control" placeholder="Stock minimal">
+  </div>
+ </div>
+ <br>
+ 
+ <div class="row">
+  <div class="col-xs-4">
+  <label>Stock maximal </label>
+    <input type="text" ng-model="stockmax" class="form-control" placeholder="stock maximal">
+  </div>
+  <div class="col-xs-4">
+  <label>stock reel </label>
+    <input type="text" ng-model="stockreel" class="form-control" placeholder="stock reel">
+  </div>
+  <div class="col-xs-4">
+  <label>Prix Achat</label>
+    <input type="text" ng-model="prixachat" class="form-control" placeholder="prix achat">
+  </div>
+ </div>
+ 
+ <br>
+  <div class="row">
+  <div class="col-xs-4">
+  <label>Prix Vente </label>
+    <input type="text" ng-model="prixvente" class="form-control" placeholder="Prix de vente">
+  </div>
+  <div class="col-xs-4">
+  <label>Categorie </label>
+    <select ng-options="cat.idCat as cat.nomCat for cat in categories"  ng-model="idCat" class="form-control" >
+  </select>
+  </div>
+  
+  <div class="col-xs-4">
+  
+  </div>
+  
+ 
+ </div>
+ <br>
+ 
+ <button type="submit" ng-click="ajouterArticle()" class="btn btn-primary">Ajouter Article</button>
+  
+ </form>
+  
+  </div>
+
+
+
+<div>
+
+<form>
+
+<div style='width: 600px ; float: left'>
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>ID </th> <th> Code Client </th> <th> Client </th> <th> Montant </th> <th> Les articles</th> <th> Convertir</th> <th> Convertir</th>
+</tr>
+ </thead>
+ 
+ <tbody>
+ <tr ng-repeat="comCl in commandesClient">
+ 
+ <td> {{comCl.idComCl}} </td>
+ <td> {{comCl.client.idCl}} </td>
+ <td> {{comCl.client.nomSoc}} </td>
+ <td> {{comCl.totalComCl}} </td>
+ <td> <button   ng-click="getArticlesCommande(comCl.idComCl)" class="btn btn-primary">Afficher les articles</button> </td>
+ <td> <button ng-click="addBonLivraisonClient(comCl.idComCl)"   class="btn btn-primary">Generer Bon de Livraison</button> </td>
+ <td> <button ng-click="addFactureDirecte(comCl.idComCl)"   class="btn btn-primary">Generer Facture</button> </td>
+ </tr>
+ 
+ </tbody>
+
+</table>
+ 
+</div>
+
+
+
+<div style='width: 600px ; float: right'>
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>ID </th> <th> Designation </th> <th> Quantité </th> <th> Prix total </th>
+</tr>
+ </thead>
+ 
+ <tbody>
+ <tr ng-repeat="art in articlesCommande">
+ 
+ <td> {{art.idArtListe}} </td>
+ <td> {{art.designationAl}} </td>
+ <td> {{art.quantiteAl}} </td>
+ <td> {{art.prixtotalAl}} </td>
+ </tr>
+ 
+ </tbody>
+
+</table>
+ 
+</div>
+
+
+
+</form>
+
+</div>
+
+
+
+<form>
+
+<div class="container spacer" style='width: 600px ; float: left'>
+<h3>Ajouter Une Commande</h3>
+
+   <div class="row">
+  <div class="col-xs-4">
+  <label>Client</label>
+  <select  ng-options="o.idCl as o.nomSoc for o in clients"  ng-model="codeComCl" class="form-control" >
+  </select>
+  </div>
+  <div class="col-xs-4">
+  <label>Date </label>
+    <input type="Date" ng-model="dateComCl" class="form-control" placeholder="Date Commande">
+  </div>
+
+ </div>
+
+ <br>
+ 
+ <button type="submit" ng-click="ajouterCommande()" class="btn btn-primary">Ajouter La Commande</button>
+  </div>
+ 
+ 
+ <div class="container spacer" style='width: 600px ; float: right'>
+
+
+<h3>Ajouter Les Articles </h3>
+
+
+				  	<table id="table1" class="table table-bordered">
+							<tr>
+							    <th><input class='check_all' type='checkbox' onclick="select_all()"/></th>
+							    <th>S. No</th>
+							    <th>Code</th>
+							    <th>Designation</th>
+							    <th>Quantité</th>
+							    <th>Prix</th>
+							</tr>
+							<tr>
+						    	<td><input type='checkbox'/></td>
+						    	<td><span id='snum'>1.</span></td>
+						   	 	<td><input class="form-control" type='text' id='countryname_1' ng-model='codeArt[1]'/></td>
+						    	<td><input class="form-control" type='text' id='country_no_1' ng-model='desArt[1]' /></td>
+						    	<td><input class="form-control" type='text'  id='phone_code_1' ng-model='qteArt[1]'/></td>
+						    	<td><input class="form-control" type='text' id='country_code_1' ng-model='prixArt[1]'/> </td>
+						  	</tr>
+						  	
+						  	<tr>
+						    	<td><input type='checkbox'/></td>
+						    	<td><span id='snum'>1.</span></td>
+						   	 	<td><input class="form-control" type='text' id='countryname_1' ng-model='codeArt[2]'/></td>
+						    	<td><input class="form-control" type='text' id='country_no_1' ng-model='desArt[2]' /></td>
+						    	<td><input class="form-control" type='text'  id='phone_code_1' ng-model='qteArt[2]'/></td>
+						    	<td><input class="form-control" type='text' id='country_code_1' ng-model='prixArt[2]'/> </td>
+						  	</tr>
+						  	
+						  	<tr>
+						    	<td><input type='checkbox'/></td>
+						    	<td><span id='snum'>1.</span></td>
+						   	 	<td><input class="form-control" type='text' id='countryname_1' ng-model='codeArt[3]'/></td>
+						    	<td><input class="form-control" type='text' id='country_no_1' ng-model='desArt[3]' /></td>
+						    	<td><input class="form-control" type='text'  id='phone_code_1' ng-model='qteArt[3]'/></td>
+						    	<td><input class="form-control" type='text' id='country_code_1' ng-model='prixArt[3]'/> </td>
+						  	</tr>
+			
+						  	
+				  	  </table>
+				  	  <div align="left">
+					  	  <button type="button" class='btn phpbutton delete'>- Supprimer </button>
+					  	  <button type="button"   class='btn phpbutton addmore'>+ Ajouter </button>
+			  	    </div>
+
+
+</div>
+    
+
+</form>
+
+
+
+
+<div style='width: 600px ; float: left'>
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>ID </th> <th> Code Client </th> <th> Client </th> <th> Montant </th> <th> Les articles</th> <th> Convertir</th>
+</tr>
+ </thead>
+ 
+ <tbody>
+ <tr ng-repeat="blcl in bonLivraisonClient">
+ 
+ <td> {{blcl.idBl}} </td>
+ <td> {{blcl.client.idCl}} </td>
+ <td> {{blcl.client.nomSoc}} </td>
+ <td> {{blcl.totalttcBl}} </td>
+ <td> <button   ng-click="getArticlesLivraison(blcl.idBl)" class="btn btn-primary">Afficher les articles</button> </td>
+ <td> <button   class="btn btn-primary">Generer La facture</button> </td>
+ </tr>
+ 
+ </tbody>
+
+</table>
+ 
+</div>
+
+
+<div style='width: 600px ; float: right'>
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>ID </th> <th> Designation </th> <th> Quantité </th> <th> Prix total </th>
+</tr>
+ </thead>
+ 
+ <tbody>
+ <tr ng-repeat="artL in articlesLivraison">
+ 
+ <td> {{artL.idArtListe}} </td>
+ <td> {{artL.designationAl}} </td>
+ <td> {{artL.quantiteAl}} </td>
+ <td> {{artL.prixtotalAl}} </td>
+ </tr>
+ 
+ </tbody>
+
+</table>
+ 
+</div>
+
+
+
+
+
+
+
+<script>
+	$(document).ready(function() {
+
+
+		$(".delete").on('click', function() {
+			$('.case:checkbox:checked').parents("tr").remove();
+			$('.check_all').prop("checked", false); 
+			check();
+		});
+		var i=$('#table1 tr').length;
+
+		$(".addmore").on('click',function(){
+			count=$('#table1 tr').length;
+		    var data="<tr><td><input type='checkbox' class='case'/></td><td><span id='snum"+i+"'>"+count+".</span></td>";
+		    data +="<td><input class='form-control' type='text' id='countryname_"+i+"' ng-model='codeArt["+i+"]' /></td> <td><input class='form-control' type='text' id='country_no_"+i+"' ng-model='desArt["+i+"]' /></td><td><input class='form-control' type='text' id='phone_code_"+i+"'  ng-model='qteArt["+i+"]'  /></td><td><input class='form-control' type='text' id='country_code_"+i+"' ng-model='prixArt["+i+"]' /></td></tr>";
+			$('#table1').append(data);
+			alert(i);
+			row = i ;
+			i++;
+		});
+						
+		function select_all() {
+			$('input[class=case]:checkbox').each(function(){ 
+				if($('input[class=check_all]:checkbox:checked').length == 0){ 
+					$(this).prop("checked", false); 
+				} else {
+					$(this).prop("checked", true); 
+				} 
+			});
+		}
+
+		function check(){
+			obj=$('table tr').find('span');
+			$.each( obj, function( key, value ) {
+				id=value.id;
+				$('#'+id).html(key+1);
+			});
+		}
+
+
+          
+	
+	});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
