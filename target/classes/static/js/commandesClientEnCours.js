@@ -183,11 +183,12 @@ app.controller("commandesClientEnCoursController",function($scope,$http){
 	    
   $scope.deleteCommandeClient=function(idComCl){
 //	  console.log(JSON.stringify(comCl))
-	 // console.log("idComCl "+idComCl)
+	  console.log("idComCl is "+idComCl)
 			
 			$http.get("/deleteCommandeClient?idComCl="+idComCl)
-			.success(function(data){ 
-				console.log(JSON.stringify(data))
+			.success(function(data){
+				
+			console.log("yes succcess")
 				$http.get("/getCommandesClientNT?position="+$scope.pageCourante+"&nbre="+$scope.nbreCommandeParPage)
 				.success(function(data){
 					$scope.commandesClient.coms = data ;		

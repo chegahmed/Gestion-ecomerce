@@ -264,14 +264,12 @@ public class ComDaoImpl implements IComDao {
 
 	@Override
 	public void deleteBCommande(Long id) {
-		System.err.println("ici supprimeeeeeeeeee");
 		Query req = em.createQuery("select a from ArticleListe a where a.commandeClient.idComCl =:x ");
 		req.setParameter("x",id) ;
 		List<ArticleListe> artListe = req.getResultList();
-		
+
 		if(artListe!=null) {
 			for(ArticleListe a : artListe) {
-				
 				 Article arte=em.find(Article.class, a.getArticle().getIdArt()) ;
 				 Collection<ArticleListe> articles1 = arte.getArticles() ;
 				 articles1.remove(a) ;
@@ -284,11 +282,8 @@ public class ComDaoImpl implements IComDao {
 				 com.setArticles(articles2);
 		         em.persist(com);
 				
-				 em.remove(a);
-				
+				 em.remove(a);	
 			}
-			
-			
 		}
 		
 		CommandeClient b=em.find(CommandeClient.class, id) ;
@@ -343,11 +338,13 @@ public class ComDaoImpl implements IComDao {
 	@Override
 	public void deleteBLivr(Long id) {
 	
+		
 		BonLivraison bon1=em.find(BonLivraison.class, id) ;
 		Collection<ArticleListe> artListeBon = bon1.getArticlesBl();
 		Collection<ArticleListe> artListeBon2 = new ArrayList<ArticleListe>();
 		artListeBon2.addAll(artListeBon) ;
-		
+
+
 		CommandeClient com2=em.find(CommandeClient.class, bon1.getCommandeClient().getIdComCl()) ;
 		Collection<ArticleListe> artListeCopie = com2.getArticles();
 		Collection<ArticleListe> artListe = new ArrayList<ArticleListe>();
@@ -369,11 +366,8 @@ public class ComDaoImpl implements IComDao {
 				 com.setArticles(articles2);
 		         em.persist(com);
 				
-				 em.remove(a);
-				
+				 em.remove(a);	
 			}
-			
-			
 		}
 		
 		

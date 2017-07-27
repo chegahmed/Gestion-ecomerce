@@ -267,9 +267,11 @@ $scope.addFactureAccompteClientM=function(){
 		    
 		    
 		    $scope.deleteBLClient=function(idBL){
+		    	console.log('idBl is : '+idBL)
 				$http.get("/deleteBL?idBL="+idBL)
 				.success(function(data){ 
-					
+					console.log('success: ')
+			
 					$http.get("/getBLClientNT?position="+$scope.pageCourante+"&nbre="+$scope.nbreBLParPage)
 					.success(function(data){
 						$scope.bonLivraisonClient.coms = data ;		
